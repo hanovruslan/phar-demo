@@ -1,0 +1,30 @@
+{
+    "banner": [
+        "This file is part hanovruslan/phar-demo",
+        "",
+        "This source files is subject to the proprietary license"
+    ],
+    "chmod": "0750",
+    "compression": "GZ",
+    "directories": [
+        "resources",
+        "var/cache"
+    ],
+    "exclude-dev-files": false,
+    "finder": [
+        {
+            "ignoreDotFiles": false,
+            "in": ".",
+            "name": ".env"
+        },
+        {
+            "in": "vendor/twig/twig",
+            "name": "*.php"
+        }
+    ],
+    "force-autodiscovery": true,
+    "main": "src/index.php",
+    "output": "module.phar",
+    "shebang": false,
+    "stub": "src/files/stub-web.php"
+}

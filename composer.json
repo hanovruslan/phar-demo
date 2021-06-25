@@ -1,0 +1,92 @@
+{
+    "authors": [
+        {
+            "email": "me@hanov-ruslan.ru",
+            "name": "Hanov Ruslan"
+        }
+    ],
+    "config": {
+        "apcu-autoloader": true,
+        "cache-files-ttl": 7776000,
+        "discard-changes": true,
+        "optimize-autoloader": true,
+        "platform": {
+            "php": "7.3.1"
+        },
+        "preferred-install": "dist"
+    },
+    "description": "hanovruslan phar demo",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.x-dev"
+        }
+    },
+    "license": [
+        "MIT"
+    ],
+    "name": "hanovruslan/phar-demo",
+    "require": {
+        "humbug/box": "^3.0"
+    },
+    "require-dev": {
+        "ext-zlib": "^7.3",
+        "neronmoon/scriptsdev": "0.1.9"
+    },
+    "scripts": {
+        "_composer:install": "composer install --no-interaction --no-suggest",
+        "_composer:strict": "composer validate --no-interaction --no-plugins --strict --no-check-all --no-check-publish",
+        "_composer:update": "composer update --no-interaction --no-plugins --no-suggest --no-scripts",
+        "_composer:update:min": "@_composer:update --no-autoloader --ignore-platform-reqs --no-progress",
+        "_dev:test:composer:lock": "@_composer:update:min nothing --lock",
+        "_dev:test:composer:strict": "@_test:composer:strict",
+        "_test:composer:lock": "@_composer:update:min nothing --lock --no-dev",
+        "_test:composer:strict": "@_composer:strict",
+        "_test:platform": "composer check-platform-reqs --no-interaction --no-plugins",
+        "_any:warmup": [
+            "@_composer:install --no-dev",
+            "composer dumpautoload"
+        ],
+        "_any-debug:warmup": [
+            "@_composer:install",
+            "composer dumpautoload"
+        ],
+        "console-debug:compile": [
+            "@_any-debug:warmup",
+            "box compile --no-interaction -d ./ -c module-console-debug.json"
+        ],
+        "console-debug:prepare": [
+            "@console-debug:compile",
+            "mv console-debug.phar ./box/"
+        ],
+        "console:compile": [
+            "@_any:warmup",
+            "box compile --no-interaction -c module-console.json"
+        ],
+        "console:prepare": [
+            "@console:compile",
+            "mv console.phar ./box/"
+        ],
+        "web-debug:compile": [
+            "@_composer:install",
+            "box compile --no-interaction -c module-web-debug.json"
+        ],
+        "web-debug:prepare": [
+            "@web-debug:compile",
+            "mv ../module-debug.phar ../box/"
+        ],
+        "web:compile": [
+            "@_composer:install --no-dev",
+            "composer dumpautoload",
+            "box compile --no-interaction -c module-web.json"
+        ],
+        "web:prepare": [
+            "@web:compile",
+            "mv module-web.phar ../box/"
+        ],
+        "post-create-project-cmd": "@_composer:install",
+        "post-install-cmd": "@post:install:cmd",
+        "post-update-cmd": "@post-install-cmd",
+        "post:install:cmd": "echo empty post-install-cmd"
+    },
+    "type": "library"
+}

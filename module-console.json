@@ -1,0 +1,11 @@
+{
+    "chmod": "0750",
+    "compression": "GZ",
+    "directories": [
+        "src/apps/console"
+    ],
+    "exclude-dev-files": true,
+    "main": "src/apps/console/console.php",
+    "output": "console.phar",
+    "stub": "src/files/stub-console.php"
+}

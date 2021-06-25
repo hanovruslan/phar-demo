@@ -1,7 +1,7 @@
 <?php
 
-Phar::webPhar($alias = 'module.phar');
+Phar::webPhar($alias = 'web.phar');
 
-require 'phar://' . $alias . '/src/index.php';
+require 'phar://' . $alias . '/src/apps/web/web.php';
 
 __HALT_COMPILER();

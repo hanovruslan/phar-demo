@@ -26,7 +26,8 @@
     ],
     "name": "hanovruslan/phar-demo",
     "require": {
-        "humbug/box": "^3.0"
+        "humbug/box": "^3.0",
+        "fakerphp/faker": "^1.0"
     },
     "require-dev": {
         "ext-zlib": "^7.3",
@@ -81,7 +82,7 @@
         ],
         "web:prepare": [
             "@web:compile",
-            "mv module-web.phar ../box/"
+            "mv web.phar ./box/"
         ],
         "post-create-project-cmd": "@_composer:install",
         "post-install-cmd": "@post:install:cmd",

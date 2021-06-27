@@ -1,9 +1,0 @@
-{
-    "chmod": "0750",
-    "compression": "NONE",
-    "exclude-dev-files": false,
-    "force-autodiscovery": true,
-    "main": "src/apps/web/index.php",
-    "output": "module-web-debug.phar",
-    "stub": "src/files/stub-web.php"
-}

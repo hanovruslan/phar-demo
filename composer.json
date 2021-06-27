@@ -29,7 +29,7 @@
         "humbug/box": "^3.0"
     },
     "require-dev": {
-        "ext-zlib": "^7.3",
+        "ext-zlib": "^7.2",
         "neronmoon/scriptsdev": "0.1.9"
     },
     "scripts": {
@@ -52,36 +52,35 @@
         ],
         "console-debug:compile": [
             "@_any-debug:warmup",
-            "box compile --no-interaction -d ./ -c module-console-debug.json"
+            "box compile --no-interaction -d ./ -c console-debug-phar-config.json"
         ],
         "console-debug:prepare": [
             "@console-debug:compile",
-            "mv console-debug.phar ./box/"
+            "mv console-debug.phar ./box"
         ],
         "console:compile": [
             "@_any:warmup",
-            "box compile --no-interaction -c module-console.json"
+            "box compile --no-interaction -c console-phar-config.json"
         ],
         "console:prepare": [
             "@console:compile",
-            "mv console.phar ./box/"
+            "mv console.phar ./box"
         ],
         "web-debug:compile": [
             "@_composer:install",
-            "box compile --no-interaction -c module-web-debug.json"
+            "box compile --no-interaction -c web-debug-phar-config.json"
         ],
         "web-debug:prepare": [
             "@web-debug:compile",
-            "mv ../module-debug.phar ../box/"
+            "mv web-debug.phar ./box"
         ],
         "web:compile": [
-            "@_composer:install --no-dev",
-            "composer dumpautoload",
-            "box compile --no-interaction -c module-web.json"
+            "@_any:warmup",
+            "box compile --no-interaction -c web-phar-config.json"
         ],
         "web:prepare": [
             "@web:compile",
-            "mv module-web.phar ../box/"
+            "mv web.phar ./box"
         ],
         "post-create-project-cmd": "@_composer:install",
         "post-install-cmd": "@post:install:cmd",

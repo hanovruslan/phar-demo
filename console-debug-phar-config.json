@@ -4,7 +4,6 @@
     "directories": [
         "src/apps/console"
     ],
-    "exclude-dev-files": false,
     "main": "src/apps/console/console.php",
     "output": "console-debug.phar",
     "stub": "src/files/stub-console.php"

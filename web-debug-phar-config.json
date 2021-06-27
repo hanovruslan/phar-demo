@@ -1,0 +1,10 @@
+{
+    "chmod": "0750",
+    "compression": "NONE",
+    "directories": [
+        "src/apps/web"
+    ],
+    "main": "src/apps/web/web.php",
+    "output": "web-debug.phar",
+    "stub": "src/files/stub-web.php"
+}

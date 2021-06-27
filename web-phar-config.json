@@ -1,0 +1,10 @@
+{
+    "chmod": "0750",
+    "compression": "GZ",
+    "exclude-dev-files": true,
+    "directories": [
+        "src/apps/web"
+    ],
+    "main": "src/apps/web/web.php",
+    "output": "web.phar"
+}
